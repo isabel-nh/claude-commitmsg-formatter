@@ -1,0 +1,38 @@
+{
+  "name": "commitmsg-formatter",
+  "version": "0.1.0",
+  "description": "Validates and normalizes git commit messages before Bash runs them: 50-character subject opening with one gitmoji, no colon, body wrapped at 72, no editor-opening forms.",
+  "author": { "name": "Isabel Maskrey" },
+  "homepage": "https://github.com/isabel-nh/claude-commitmsg-formatter",
+  "repository": "https://github.com/isabel-nh/claude-commitmsg-formatter",
+  "documentationUrl": "https://github.com/isabel-nh/claude-commitmsg-formatter#readme",
+  "supportUrl": "https://github.com/isabel-nh/claude-commitmsg-formatter/issues",
+  "license": "MIT",
+  "keywords": ["git", "commit", "commit-message", "gitmoji", "mod"],
+  "userConfig": {
+    "subjectMax": {
+      "type": "number",
+      "title": "Subject length limit",
+      "description": "Maximum subject length in characters (Unicode code points, so a gitmoji with a variation selector counts as two). Values below 10 fall back to 50.",
+      "default": 50
+    },
+    "bodyWrap": {
+      "type": "number",
+      "title": "Body wrap width",
+      "description": "Body lines longer than this are re-wrapped. Values below 20 fall back to 72.",
+      "default": 72
+    },
+    "requireGitmoji": {
+      "type": "boolean",
+      "title": "Require a gitmoji",
+      "description": "The subject must open with exactly one glyph from the official gitmoji list. Off: no emoji is required, and a leading emoji may be any one emoji.",
+      "default": true
+    },
+    "disallowedPatterns": {
+      "type": "string",
+      "title": "Disallowed patterns",
+      "description": "Regular expressions, one per line. A commit message (subject or body) matching any of them is denied. Empty: none.",
+      "default": ""
+    }
+  }
+}
